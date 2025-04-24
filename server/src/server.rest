@@ -1,0 +1,12 @@
+### GET ALL CATS
+GET http://localhost:7777/api/cats
+
+### CREATE CAT
+POST http://localhost:7777/api/cats
+Content-Type: application/json
+
+{
+  "name": "Mysan",
+  "age": 10,
+  "pattern": "bi-chrome"
+}
