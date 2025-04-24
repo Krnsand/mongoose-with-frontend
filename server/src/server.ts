@@ -1,5 +1,6 @@
-import express, { ErrorRequestHandler } from "express";
-import mongoose, { MongooseError } from "mongoose";
+import express from "express";
+import mongoose from "mongoose";
+import { errorHandler } from "./middlewares";
 import { catsRouter } from "./services/cats/cats-router";
 
 const app = express();
@@ -7,17 +8,6 @@ const port = process.env.PORT ?? 7777;
 
 app.use(express.json());
 app.use(catsRouter);
-
-const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  console.error(err);
-  if (err instanceof MongooseError) {
-    res.status(404).json(err.message);
-    return;
-  }
-
-  res.status(500).json("Internal server error");
-};
-
 app.use(errorHandler);
 
 async function main() {
