@@ -1,5 +1,5 @@
-import express from "express";
-import mongoose from "mongoose";
+import express, { ErrorRequestHandler } from "express";
+import mongoose, { MongooseError } from "mongoose";
 import { CatModel } from "./services/cats/cats-model";
 
 const app = express();
@@ -16,6 +16,18 @@ app.post("/api/cats", async (req, res) => {
   const cat = await CatModel.create(req.body);
   res.status(201).json(cat);
 });
+
+const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+  console.error(err);
+  if (err instanceof MongooseError) {
+    res.status(404).json(err.message);
+    return;
+  }
+
+  res.status(500).json("Internal server error");
+};
+
+app.use(errorHandler);
 
 async function main() {
   await mongoose.connect("mongodb://localhost:27017/cats-db");
