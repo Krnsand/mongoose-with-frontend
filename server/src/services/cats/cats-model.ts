@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { InferSchemaType, model, Schema } from "mongoose";
 
 const catSchema = new Schema({
   name: { type: String, required: true },
@@ -9,3 +9,5 @@ const catSchema = new Schema({
 });
 
 export const CatModel = model("Cat", catSchema);
+
+export type Cat = InferSchemaType<typeof catSchema>;
