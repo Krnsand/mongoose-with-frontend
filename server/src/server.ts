@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 
 const app = express();
 const port = process.env.PORT ?? 7777;
@@ -13,6 +14,11 @@ app.post("/api/cats", (req, res) => {
   res.status(201).json("Created...");
 });
 
-app.listen(port, () => {
-  console.log(`Server is running: http://localhost:${port}`);
-});
+async function main() {
+  await mongoose.connect("mongodb://localhost:27017/cats-db");
+  app.listen(port, () => {
+    console.log(`Server is running: http://localhost:${port}`);
+  });
+}
+
+main().catch(console.error);
