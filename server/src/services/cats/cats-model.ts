@@ -5,7 +5,10 @@ const catSchema = new Schema({
   pattern: { type: String, required: true },
   colors: [String],
   age: { type: Number, required: true },
-  createdAt: { type: Date, default: Date.now() },
+  imageUrl: { type: String, required: true },
+},
+{
+  timestamps: true, versionKey: false
 });
 
 export const CatModel = model("Cat", catSchema);

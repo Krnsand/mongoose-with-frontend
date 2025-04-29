@@ -1,12 +1,25 @@
-### GET ALL CATS
-GET http://localhost:7777/api/cats
 
-### CREATE CAT
 POST http://localhost:7777/api/cats
 Content-Type: application/json
 
 {
   "name": "Mysan",
+  "pattern": "bi-chrome",
+  "colors": ["grey", "white"],
   "age": 10,
-  "pattern": "bi-chrome"
+  "imageUrl": "https://www.pexels.com/sv-se/foto/djur-husdjur-sot-kattunge-104827/"
+}
+
+
+### GET ALL CATS
+GET http://localhost:7777/api/visit
+
+### CREATE CAT
+POST http://localhost:7777/api/visit
+Content-Type: application/json
+
+{
+"name": "Karin",
+"date": "2025-04-29T12:30:00.000",
+"cat": "jflskjidjml28389837"
 }

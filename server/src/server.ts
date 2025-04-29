@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { errorHandler } from "./middlewares";
 import { catsRouter } from "./services/cats/cats-router";
+import { visitsRouter } from "./services/visits/visits-router";
 dotenv.config();
 
 const app = express();
@@ -11,6 +12,7 @@ const dbUrl = process.env.DATABASE_URL ?? "mongodb://localhost:27017/cats-db";
 
 app.use(express.json());
 app.use(catsRouter);
+app.use(visitsRouter);
 app.use(errorHandler);
 
 async function main() {

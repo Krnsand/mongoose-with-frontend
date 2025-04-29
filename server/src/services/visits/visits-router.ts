@@ -2,7 +2,8 @@ import { Request, Response, Router } from "express";
 import { VisitModel } from "./visits-model";
 
 const getAllVisits = async (req: Request, res: Response) => {
-  const visits = await VisitModel.find({});
+  const visits = await VisitModel.find({}).populate("cat");
+ 
   res.status(200).json(visits);
 };
 
