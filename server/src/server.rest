@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
   "name": "Peachy",
-  "pattern": "bi-chrome",
-  "colors": ["grey", "white"],
+  "pattern": "tortoise",
+  "colors": ["black", "white", "orange"],
   "age": 10,
   "imageUrl": "https://www.pexels.com/sv-se/foto/djur-husdjur-sot-kattunge-104827/"
 }
