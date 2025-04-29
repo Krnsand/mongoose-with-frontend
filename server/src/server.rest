@@ -3,7 +3,7 @@ POST http://localhost:7777/api/cats
 Content-Type: application/json
 
 {
-  "name": "Mysan",
+  "name": "Peachy",
   "pattern": "bi-chrome",
   "colors": ["grey", "white"],
   "age": 10,
@@ -12,14 +12,14 @@ Content-Type: application/json
 
 
 ### GET ALL CATS
-GET http://localhost:7777/api/visit
+GET http://localhost:7777/api/visits
 
 ### CREATE CAT
-POST http://localhost:7777/api/visit
+POST http://localhost:7777/api/visits
 Content-Type: application/json
 
 {
 "name": "Karin",
 "date": "2025-04-29T12:30:00.000",
-"cat": "jflskjidjml28389837"
+"cat": "6810916c18be603c5c325e6b"
 }
